@@ -6,6 +6,8 @@ import {LoginComponent} from "./auth/component/login/login.component";
 import {ForbiddenComponent} from "./auth/component/forbidden/forbidden.component";
 import {TestauthComponent} from "./site/component/testauth/testauth.component";
 import {authGuard} from "./auth/helper/auth.guard";
+import {ProfileComponent} from "./site/profile/profile.component";
+import {SignupComponent} from "./auth/component/signup/signup.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +15,11 @@ const routes: Routes = [
     canActivate: [authGuard],
     data: {roles: ['role.admin', 'ROLE_USER']}},
   {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'profile', component: ProfileComponent,
+    canActivate: [authGuard],
+    data: {roles: ['role.user']}
+  },
   {path: 'forbidden', component: ForbiddenComponent},
   {path: '**', component: NotFoundComponent},
 ];

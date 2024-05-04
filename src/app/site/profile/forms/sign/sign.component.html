@@ -1,0 +1,6 @@
+<form [formGroup]="signForm" (ngSubmit)="onSubmit()">
+
+  <ckeditor [editor]="Editor" [config]="config" [data]="editorData" formControlName="signContent"></ckeditor>
+
+  <button type="submit" class="btn btn-active btn-primary">Enregistrer</button>
+</form>

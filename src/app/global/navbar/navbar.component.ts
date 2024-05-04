@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   showAdminBoard = false;
   AuthUserSub! : Subscription;
   user: User|null = null;
+  defaultAvatar = 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg';
   constructor(
     protected authService: AuthService,
   ) {

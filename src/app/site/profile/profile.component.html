@@ -1,0 +1,19 @@
+<div role="tablist" class="tabs tabs-bordered">
+  <a role="tab" (click)="selectedTab = 1"  [ngClass]="selectedTab === 1 ? 'tab tab-active' : 'tab'">Compte</a>
+  <a role="tab" (click)="selectedTab = 5"  [ngClass]="selectedTab === 5 ? 'tab tab-active' : 'tab'">Profil</a>
+  <a role="tab" (click)="selectedTab = 6"  [ngClass]="selectedTab === 6 ? 'tab tab-active' : 'tab'">Avatar</a>
+  <a role="tab" (click)="selectedTab = 4"  [ngClass]="selectedTab === 4 ? 'tab tab-active' : 'tab'">Signature</a>
+  <a role="tab" (click)="selectedTab = 2"  [ngClass]="selectedTab === 2 ? 'tab tab-active' : 'tab'">Mot de passe</a>
+  <a role="tab" (click)="selectedTab = 3"  [ngClass]="selectedTab === 3 ? 'tab tab-active' : 'tab'">Réglages</a>
+</div>
+
+<section class="container mx-auto bg-amber-800 shadow-md p-6" [ngSwitch]="selectedTab">
+  <app-user *ngSwitchCase="5"></app-user>
+  <app-password *ngSwitchCase="2"></app-password>
+  <app-settings *ngSwitchCase="3"></app-settings>
+  <app-sign *ngSwitchCase="4"></app-sign>
+  <app-account *ngSwitchCase="1"></app-account>
+  <app-avatar *ngSwitchCase="6" [user]="user"></app-avatar>
+</section>
+
+

@@ -1,0 +1,83 @@
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <form [formGroup]="signupForm" class="card-body" (ngSubmit)="onSubmitLogin()" #formDir="ngForm">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Login</span>
+          </label>
+          <input type="text" id="login" formControlName="login" placeholder="Login" class="input input-bordered" required />
+          <!-- Affichage des erreurs de validation -->
+          <small
+            class="text-secondary"
+            *ngIf="signupForm.controls?.['login']?.invalid && (signupForm.controls?.['login']?.touched)"
+          >
+            <div *ngIf="signupForm.controls?.['login']?.errors?.['required']">
+              Veuillez saisir un login
+            </div>
+            <div *ngIf="signupForm.controls?.['login']?.errors?.['minlength']">
+              Le login doit faire au minimum 4 caractères
+            </div>
+          </small>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="email" formControlName="email" placeholder="Email" class="input input-bordered" required />
+          <small
+            class="text-secondary"
+            *ngIf="signupForm.controls?.['email']?.invalid && (signupForm.controls?.['email']?.touched)"
+          >
+            <p *ngIf="! signupForm.controls['email'].errors?.['required']">Veuillez saisir un email</p>
+            <p *ngIf="! signupForm.controls['email'].errors?.['minLength']">Le mail doit faire plus de 4 caractères</p>
+            <p *ngIf="! signupForm.controls['email'].errors?.['email']">Veuillez saisir un email valide</p>
+          </small>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Mot de passe</span>
+          </label>
+          <input type="password" formControlName="password" placeholder="Mot de passe" class="input input-bordered" required />
+          <small
+            class="text-secondary"
+            *ngIf="signupForm.controls?.['password']?.invalid && (signupForm.controls?.['password']?.touched)"
+          >
+            <p *ngIf="! signupForm.controls['password'].errors?.['required']">Veuillez saisir un un mot de passe</p>
+            <p *ngIf="! signupForm.controls['password'].errors?.['minLength']">Le un mot de passe doit faire plus de 8 caractères</p>
+          </small>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Confirmation du mot de passe</span>
+          </label>
+          <input type="password" formControlName="passwordConfirm" placeholder="Mot de passe" class="input input-bordered" required />
+          <small
+            class="text-secondary"
+            *ngIf="signupForm.controls?.['passwordConfirm']?.invalid && (signupForm.controls?.['passwordConfirm']?.touched)"
+          >
+            <p *ngIf="! signupForm.controls['passwordConfirm'].errors?.['required']">Veuillez saisir un mot de passe</p>
+            <p *ngIf="! signupForm.controls['passwordConfirm'].errors?.['minLength']">Le un mot de passe doit faire plus de 8 caractères</p>
+          </small>
+        </div>
+        <div class="form-control">
+          <label class="label cursor-pointer">
+            <input type="checkbox" formControlName="agreement" class="checkbox" />&nbsp;&nbsp;
+            <span class="label-text">J'ai lu et j'accepte les <a href="#" class="label-text-alt link link-hover">conditions d'utilisation</a> </span>
+            <small
+              class="text-secondary"
+              *ngIf="signupForm.controls?.['passwordConfirm']?.invalid && (signupForm.controls?.['passwordConfirm']?.touched)"
+            >
+              <p *ngIf="! signupForm.controls['passwordConfirm'].errors?.['requiredTrue']">Veuillez accepter les conditions d'utilisation</p>
+            </small>
+          </label>
+        </div>
+        <div class="form-control mt-6">
+          <button class="btn btn-primary" type="submit" >Enregistrement</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

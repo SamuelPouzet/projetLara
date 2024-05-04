@@ -4,21 +4,24 @@
       <form [formGroup]="loginForm" class="card-body" (ngSubmit)="onSubmitLogin()">
         <div class="form-control">
           <label class="label">
-            <span class="label-text">Email</span>
+            <span class="label-text">Login</span>
           </label>
-          <input type="email" formControlName="email" placeholder="email" class="input input-bordered" required />
+          <input type="email" formControlName="email" placeholder="Login" class="input input-bordered" required />
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text">Password</span>
+            <span class="label-text">Mot de passe</span>
           </label>
-          <input type="password" formControlName="password" placeholder="password" class="input input-bordered" required />
+          <input type="password" formControlName="password" placeholder="Mot de passe" class="input input-bordered" required />
           <label class="label">
-            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            <a href="#" class="label-text-alt link link-hover">Mot de passe oublié</a>
           </label>
         </div>
         <div class="form-control mt-6">
           <button class="btn btn-primary" type="submit" >Login</button>
+        </div>
+        <div class="form-control mt-6">
+          <a routerLink="/signup" class="label-text-alt link link-hover" type="submit" >Pas de compte: s'inscrire</a>
         </div>
       </form>
     </div>

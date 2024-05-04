@@ -4,13 +4,14 @@ import {BehaviorSubject, catchError, tap, throwError} from "rxjs";
 import {User} from "../interface/user";
 import {StorageService} from "./storage.service";
 import {Router} from "@angular/router";
+import {apiUrl} from "../../../config/config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  apiUrl = 'http://api.forum.sam'; // todo mettre dans un fichier de configuration
+  apiUrl = apiUrl;
   AuthenticatedUser$ = new BehaviorSubject<User | null>(null);
   constructor(
     protected http: HttpClient,
@@ -27,10 +28,14 @@ export class AuthService {
           return throwError(() => new Error(err.error.detail))
         }),
         tap(user => {
-          this.storageService.saveUser(user);
-          this.AuthenticatedUser$.next(user);
+          this.updateUser(user);
         })
       );
+  }
+
+  public updateUser(user: User) {
+    this.storageService.saveUser(user);
+    this.AuthenticatedUser$.next(user);
   }
 
   public autoLogin() {
@@ -39,6 +44,12 @@ export class AuthService {
       return;
     }
     this.AuthenticatedUser$.next(userData);
+  }
+
+  refreshToken(){
+    return this.http.request('post', this.apiUrl + '/refresh', {
+      withCredentials: true
+    })
   }
 
   logout(){

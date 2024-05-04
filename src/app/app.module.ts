@@ -5,8 +5,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthModule} from "./auth/auth.module";
 import {SiteModule} from "./site/site.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {GlobalModule} from "./global/global.module";
+import {AuthInterceptor} from "./auth/helper/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {GlobalModule} from "./global/global.module";
         SiteModule,
         GlobalModule,
     ],
-  providers: [],
+  providers: [{provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
