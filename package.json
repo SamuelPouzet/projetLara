@@ -25,6 +25,8 @@
     "@ckeditor/ckeditor5-engine": "^41.3.0",
     "@ckeditor/ckeditor5-utils": "^41.3.0",
     "@ckeditor/ckeditor5-watchdog": "^41.3.0",
+    "jose": "^5.2.4",
+    "node-jose": "^2.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, catchError, Observable, tap, throwError} from "rxjs";
-import {User} from "../interface/user";
+import {BehaviorSubject, Observable} from "rxjs";
 import {apiUrl} from "../../../config/config";
+import {User} from "../../auth/interface/user";
 
 @Injectable({
   providedIn: 'root'

@@ -4,7 +4,7 @@ import {BehaviorSubject, catchError, tap, throwError} from "rxjs";
 import {User} from "../interface/user";
 import {StorageService} from "./storage.service";
 import {Router} from "@angular/router";
-import {apiUrl} from "../../../config/config";
+import {apiUrl, forumCode} from "../../../config/config";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthService {
 
   public login(login: string, password: string) {
     return this.http.request<User>('post', this.apiUrl + '/auth',
-      {body :{login: login, password: password}, withCredentials : true})
+      {body :{login: login, password: password, forum: forumCode}, withCredentials : true})
       .pipe(
         catchError(err => {
           console.log(err.error.detail);

@@ -3,7 +3,6 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Observable, startWith} from "rxjs";
 import {User} from "../../../../auth/interface/user";
 import {ProfileService} from "../../service/profile.service";
-import {Avatar} from "../../../../global/interface/avatar";
 
 @Component({
   selector: 'app-avatar',

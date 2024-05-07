@@ -44,13 +44,6 @@ export class SignupComponent {
   ) {
   }
 
-  public hasError(input: string): boolean {
-    const control = this.signupForm.controls[input];
-
-    return control.touched && control.hasError('required');
-    return false;
-  }
-
   ngOnInit() {
     this.AuthUserSub = this.authService.AuthenticatedUser$.subscribe({
       next: user => {
@@ -71,7 +64,7 @@ export class SignupComponent {
     const password = this.signupForm.value.password;
 
     this.authService.login(email, password).subscribe({
-      next: userData => {
+      next: () => {
         console.log("User is logged in");
         this.router.navigateByUrl('/');
       },

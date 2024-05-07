@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {apiUrl} from "../../../config/config";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
