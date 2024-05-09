@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {catchError, map, Subject} from "rxjs";
 import {Topic} from "../../global/interface/topic";
-import {apiUrl} from "../../../config/config";
+import {apiUrl, forumCode} from "../../../config/config";
 import {HttpClient} from "@angular/common/http";
+import {Post} from "../../global/interface/post";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,14 @@ export class PostService {
       .subscribe((post) => {
         this.postSubject.next(post);
       })
+    ;
+  }
+
+  public addPost(content: string, topicId: number)
+  {
+    return this.http.request<Topic>('post', apiUrl + `/post`,
+      {body :{content: content, topic: topicId},
+        withCredentials: true})
     ;
   }
 }

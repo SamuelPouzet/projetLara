@@ -10,17 +10,17 @@
         </div>
         <div>
           <p>Posté le {{ post.date| date: 'medium' }}</p>
-          <p class="py-6">{{ post.content }}</p>
+          <p class="py-6" [innerHTML]="post.content"></p>
         </div>
       </div>
     </div>
   </ng-container>
 </section>
 <ng-container *ngIf="canQuickRespond()">
-  <form>
-    <ckeditor [editor]="Editor" [config]="ckService.config" [data]="ckService.editorData" formControlName="content"></ckeditor>
-    <button class="btn btn-primary">Valider</button>
-    <button class="btn btn-primary">Prévisualiser</button>
+  <form [formGroup]="contentForm">
+    <ckeditor [editor]="Editor" [config]="ckService.config" [data]="ckService.editorData" formControlName="contentControl"></ckeditor>
+    <button class="btn btn-primary" (click)="save()">Valider</button>
+    <button class="btn btn-primary" (click)="preview()">Prévisualiser</button>
   </form>
 </ng-container>
 

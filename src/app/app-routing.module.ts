@@ -10,6 +10,7 @@ import {ProfileComponent} from "./site/profile/profile.component";
 import {SignupComponent} from "./auth/component/signup/signup.component";
 import {TopicsComponent} from "./site/component/topics/topics.component";
 import {PostsComponent} from "./site/component/posts/posts.component";
+import {PreviewComponent} from "./site/component/preview/preview.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'test', component: TestauthComponent,
     canActivate: [authGuard],
     data: {roles: ['role.admin', 'ROLE_USER']}
+  },
+  {
+    path: 'preview/:id', component: PreviewComponent,
+    canActivate: [authGuard],
+    data: {roles: ['role.user']}
   },
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},

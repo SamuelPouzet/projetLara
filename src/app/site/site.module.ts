@@ -20,6 +20,7 @@ import { TopicsComponent } from './component/topics/topics.component';
 import { PostsComponent } from './component/posts/posts.component';
 import { PostComponent } from './component/post/post.component';
 import {GlobalModule} from "../global/global.module";
+import { PreviewComponent } from './component/preview/preview.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {GlobalModule} from "../global/global.module";
     TopicComponent,
     TopicsComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    PreviewComponent
   ],
   imports: [
     CommonModule,
