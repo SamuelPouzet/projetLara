@@ -14,6 +14,12 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import { AccountComponent } from './profile/forms/account/account.component';
 import { AvatarComponent } from './profile/forms/avatar/avatar.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { CategoryComponent } from './component/category/category.component';
+import { TopicComponent } from './component/topic/topic.component';
+import { TopicsComponent } from './component/topics/topics.component';
+import { PostsComponent } from './component/posts/posts.component';
+import { PostComponent } from './component/post/post.component';
+import {GlobalModule} from "../global/global.module";
 
 
 @NgModule({
@@ -27,13 +33,19 @@ import {ReactiveFormsModule} from "@angular/forms";
     SettingsComponent,
     SignComponent,
     AccountComponent,
-    AvatarComponent
+    AvatarComponent,
+    CategoryComponent,
+    TopicComponent,
+    TopicsComponent,
+    PostsComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
     SiteRoutingModule,
     CKEditorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GlobalModule
   ]
 })
 export class SiteModule { }

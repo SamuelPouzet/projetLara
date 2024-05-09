@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {ProfileService} from "../../service/profile.service";
 
 @Component({
   selector: 'app-sign',
@@ -26,7 +25,6 @@ export class SignComponent {
 
   constructor(
     protected formBuilder: FormBuilder,
-    protected profileService: ProfileService,
   ) {
   }
 
