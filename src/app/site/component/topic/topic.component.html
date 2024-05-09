@@ -1,10 +1,14 @@
-<ng-container class="container mx-auto  bg-base-200 gap-1 columns-6">
-  <img class="w-full aspect-video" src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" />
-    <div>
+<ng-container class="container mx-auto  bg-base-200">
+  <section class="grid gap-1 grid-cols-6 m-1">
+    <figure>
+      <img class="col-end-1 aspect-video" src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" />
+    </figure>
+    <article class="col-span-5">
       <ng-container [ngSwitch]="topic.type">
         <h1 class="text-5xl font-bold" *ngSwitchCase="1"><a [routerLink]="['/topics', topic.id]">{{topic.name}}</a> </h1>
         <h1 class="text-5xl font-bold" *ngSwitchCase="2"><a [routerLink]="['/posts', topic.id]">{{topic.name}}</a> </h1>
       </ng-container>
       <p class="py-6">{{topic.description}}</p>
-    </div>
+    </article>
+  </section>
 </ng-container>
