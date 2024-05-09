@@ -1,0 +1,8 @@
+<section *ngIf="(topic$ | async) as topic">
+  <h1> {{ topic.name }}</h1>
+    <ng-container *ngIf="topic.children">
+      <span *ngFor="let child of topic.children">
+      <app-topic [topic]=child></app-topic>
+      </span>
+    </ng-container>
+</section>

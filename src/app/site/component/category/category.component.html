@@ -1,0 +1,12 @@
+<section *ngIf="(fieldset$ | async) as fieldset">
+  <ng-container *ngFor="let field of fieldset">
+    <ng-container  *ngIf="field.topics">
+      {{field.name}}
+
+      <span *ngFor="let topic of field.topics">
+      <app-topic [topic]=topic></app-topic>
+      </span>
+    </ng-container>
+  </ng-container>
+
+</section>

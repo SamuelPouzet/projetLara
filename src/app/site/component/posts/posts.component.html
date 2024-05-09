@@ -1,0 +1,27 @@
+<section *ngIf="(post$ | async) as topic">
+  <h1> {{ topic.name }}</h1>
+  <ng-container *ngIf="topic.posts">
+    <div class="hero  bg-base-200" *ngFor="let post of topic.posts">
+      <div class="hero-content flex-col lg:flex-row">
+        <div>
+          <p>{{ post.author.login }}</p>
+          <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+               class="max-w-sm rounded-lg shadow-2xl"/>
+        </div>
+        <div>
+          <p>Posté le {{ post.date| date: 'medium' }}</p>
+          <p class="py-6">{{ post.content }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>
+<ng-container *ngIf="canQuickRespond()">
+  <form>
+    <ckeditor [editor]="Editor" [config]="ckService.config" [data]="ckService.editorData" formControlName="content"></ckeditor>
+    <button class="btn btn-primary">Valider</button>
+    <button class="btn btn-primary">Prévisualiser</button>
+  </form>
+</ng-container>
+
+
