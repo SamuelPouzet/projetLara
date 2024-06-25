@@ -11,10 +11,13 @@ import {SignupComponent} from "./auth/component/signup/signup.component";
 import {TopicsComponent} from "./site/component/topics/topics.component";
 import {PostsComponent} from "./site/component/posts/posts.component";
 import {PreviewComponent} from "./site/component/preview/preview.component";
+import {NewTopicComponent} from "./site/component/new-topic/new-topic.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'topics/:id', component: TopicsComponent},
+  // {path: 'edit-topic/:id', component: NewTopicComponent},
+  {path: 'new-topic/:parent_id', component: NewTopicComponent},
   {path: 'posts/:id', component: PostsComponent},
   {
     path: 'test', component: TestauthComponent,

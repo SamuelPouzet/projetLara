@@ -1,4 +1,4 @@
-<ng-container *ngIf="(content$ | async)  as content">
+<ng-container *ngIf="post">
   <div class="hero  bg-base-200">
     <div class="hero-content flex-col lg:flex-row">
       <div>
@@ -7,8 +7,8 @@
              class="max-w-sm rounded-lg shadow-2xl"/>
       </div>
       <div>
-        <p>Posté le {{ now| date: 'medium' }}</p>
-        <p class="py-6" [innerHTML]="content"></p>
+        <p>Posté le {{ post.date| date: 'medium' }}</p>
+        <p class="py-6" [innerHTML]="post.content"></p>
       </div>
     </div>
   </div>

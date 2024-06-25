@@ -19,20 +19,32 @@ export class TopicService {
   }
 
   public getTopic(topicId: number) {
-      this.http.request<Topic>('get', apiUrl + `/topic/${topicId}`,
-        {withCredentials: true})
-        .pipe(
-          catchError(err => {
-            console.log(err.error.detail);
-            return [];
-          }),
-          map((fieldsets) => {
-            return fieldsets;
-          })
-        )
-        .subscribe((topic) => {
-          this.topicSubject.next(topic);
+    this.http.request<Topic>('get', apiUrl + `/topic/${topicId}`,
+      {withCredentials: true})
+      .pipe(
+        catchError(err => {
+          console.log(err.error.detail);
+          return [];
+        }),
+        map((fieldsets) => {
+          return fieldsets;
         })
-      ;
-    }
+      )
+      .subscribe((topic) => {
+        this.topicSubject.next(topic);
+      })
+    ;
+  }
+
+  public addTopic(data: Topic) {
+    return this.http.request<Topic>('post', apiUrl + '/topic',
+      {body: data, withCredentials: true}
+    )
+      .pipe(
+        catchError(err => {
+          console.error(err.error.detail);
+          return [];
+        })
+      )
+  }
 }

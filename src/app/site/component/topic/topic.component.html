@@ -4,9 +4,9 @@
       <img class="col-end-1 aspect-video" src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" />
     </figure>
     <article class="col-span-5">
-      <ng-container [ngSwitch]="topic.type">
-        <h1 class="text-5xl font-bold" *ngSwitchCase="1"><a [routerLink]="['/topics', topic.id]">{{topic.name}}</a> </h1>
-        <h1 class="text-5xl font-bold" *ngSwitchCase="2"><a [routerLink]="['/posts', topic.id]">{{topic.name}}</a> </h1>
+      <ng-container [ngSwitch]="topic.type.code">
+        <h1 class="text-5xl font-bold" *ngSwitchCase="'topic_category'"><a [routerLink]="['/topics', topic.id]">{{topic.name}}</a> </h1>
+        <h1 class="text-5xl font-bold" *ngSwitchDefault><a [routerLink]="['/posts', topic.id]">{{topic.name}}</a> </h1>
       </ng-container>
       <p class="py-6">{{topic.description}}</p>
     </article>

@@ -6,6 +6,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {CkeditorService} from "../../../global/service/ckeditor.service";
 import {Observable} from "rxjs";
 import {PostService} from "../../service/post.service";
+import {Post} from "../../../global/interface/post";
 
 @Component({
   selector: 'app-preview',
@@ -15,10 +16,13 @@ import {PostService} from "../../service/post.service";
 export class PreviewComponent implements OnInit {
 
   protected content$: Observable<string> = this.contentService.content$;
-  protected now = new Date();
   protected contentForm!: FormGroup;
   protected contentControl = new FormControl('');
   protected topicId!: number;
+  protected post: Partial<Post> = { //@todo retirer le partial et aller chercher l'auteur en bdd + appeler le post component pour le template
+    content: '',
+    date: new Date().toDateString(),
+  };
 
   constructor(
     protected activatedRoute: ActivatedRoute,
@@ -41,6 +45,7 @@ export class PreviewComponent implements OnInit {
       if (!content || content === '') {
         this.router.navigate(['posts', this.topicId])
       }
+      this.post.content = content;
       this.contentControl.patchValue(content);
     })
 

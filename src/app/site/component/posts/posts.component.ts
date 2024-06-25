@@ -5,6 +5,7 @@ import {CkeditorService} from "../../../global/service/ckeditor.service";
 import Editor from "@ckeditor/ckeditor5-build-classic";
 import {ContentService} from "../../service/content.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {BreadcrumbsService} from "../../service/breadcrumbs.service";
 
 @Component({
   selector: 'app-posts',
@@ -25,12 +26,14 @@ export class PostsComponent implements OnInit {
     protected ckService: CkeditorService,
     protected contentService: ContentService,
     protected formBuilder: FormBuilder,
+    protected breadcrumbService: BreadcrumbsService,
   ) {
   }
 
   ngOnInit() {
     this.activeRoute.params.subscribe(routeParams => {
       this.topicId = routeParams['id'];
+      this.breadcrumbService.getBreadCrumbs(this.topicId);
       this.postService.getTopic(this.topicId);
       if (this.canQuickRespond()) {
         this.contentForm = this.formBuilder.group({

@@ -21,6 +21,8 @@ import { PostsComponent } from './component/posts/posts.component';
 import { PostComponent } from './component/post/post.component';
 import {GlobalModule} from "../global/global.module";
 import { PreviewComponent } from './component/preview/preview.component';
+import { BreadcrumbsComponent } from './component/breadcrumbs/breadcrumbs.component';
+import { NewTopicComponent } from './component/new-topic/new-topic.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { PreviewComponent } from './component/preview/preview.component';
     TopicsComponent,
     PostsComponent,
     PostComponent,
-    PreviewComponent
+    PreviewComponent,
+    BreadcrumbsComponent,
+    NewTopicComponent
   ],
   imports: [
     CommonModule,

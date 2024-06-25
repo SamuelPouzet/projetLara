@@ -1,4 +1,10 @@
+<app-breadcrumbs
+[breadcrumbs$]="breadcrumbService.breadcrumbs"
+></app-breadcrumbs>
+
 <section *ngIf="(topic$ | async) as topic">
+  <button class="btn btn-neutral" [routerLink]="'/new-topic/' + topic.id">Nouveau</button>
+
   <h1> {{ topic.name }}</h1>
     <ng-container *ngIf="topic.children">
       <span *ngFor="let child of topic.children">

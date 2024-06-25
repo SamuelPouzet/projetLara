@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./auth/service/auth.service";
+import {ConfigService} from "./global/service/config.service";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,12 @@ export class AppComponent implements  OnInit{
 
   constructor(
     protected authService: AuthService,
+    protected configService: ConfigService,
   ) {
   }
 
   ngOnInit() {
     this.authService.autoLogin();
+    this.configService.init();
   }
 }

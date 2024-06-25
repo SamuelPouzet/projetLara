@@ -1,1 +1,14 @@
-<p>post works!</p>
+<ng-container class="container mx-auto  bg-base-200">
+  <section class="grid gap-1 grid-cols-6 m-1">
+    <div>
+      <p>{{ post.author.login }}</p>
+      <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+           class="max-w-sm rounded-lg shadow-2xl"/>
+    </div>
+    <article class="col-span-5">
+      <p class="w-max bg-amber-800">Posté le {{ post.date| date: 'medium' }}</p>
+      <p class="py-6" [innerHTML]="post.content"></p>
+    </article>
+  </section>
+
+</ng-container>
