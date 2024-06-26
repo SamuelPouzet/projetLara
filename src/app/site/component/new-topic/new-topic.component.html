@@ -1,0 +1,30 @@
+<form *ngIf="typeService.types | async as types" [formGroup]="topicForm" xmlns="http://www.w3.org/1999/html"
+      (ngSubmit)="submit()">
+  <h3> Type de sujet</h3>
+  <div *ngFor="let type of types">
+    <label>*** {{ type.name }} ***
+      <input type="radio" name="type" class="radio radio-secondary" formControlName="type" [value]="type">
+    </label>
+  </div>
+
+  <fieldset *ngIf="selectedType">
+    <div>
+      <label>*** Nom ***
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" formControlName="name">
+      </label>
+    </div>
+
+    <div>
+      <label>*** Description ***
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" formControlName="description">
+      </label>
+    </div>
+
+      <ng-container *ngIf="hasFirstPost()">
+          <ckeditor [editor]="Editor" [config]="ckService.config" [data]="ckService.editorData" formControlName="topic_forum_content"></ckeditor>
+      </ng-container>
+
+    <button class="btn btn-neutral" type="submit">Enregistrer</button>
+    <button class="btn btn-warning" (click)="rollback()">Annuler</button>
+  </fieldset>
+</form>

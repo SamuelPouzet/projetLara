@@ -1,0 +1,8 @@
+<div class="text-sm breadcrumbs" *ngIf="breadcrumbs$ | async as breadcrumbs">
+  <ul>
+    <li> <a routerLink="/">Accueil</a></li>
+    <li *ngFor="let breadcrumb of breadcrumbs">
+      <a routerLink="/topics/{{ breadcrumb.id }}">{{ breadcrumb.name }}</a>
+    </li>
+  </ul>
+</div>
